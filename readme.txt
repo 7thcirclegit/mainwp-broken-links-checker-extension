@@ -16,6 +16,12 @@ Author URI: https://mainwp.com
 
 == Changelog ==
 
+= 4.0.0.5 - 6-5-2021 =
+* Updated JS for WP 5.7
+* Update mainwp-getsites to mainwp_getsites
+* Updated mainwp-activated-check to mainwp_extension_enabled_check
+* Updated mainwp-activated to mainwp_activated
+
 = 4.0 - 8-28-2019 =
 * Updated: extension UI/UX redesign
 * Updated: support for the MainWP 4.0
