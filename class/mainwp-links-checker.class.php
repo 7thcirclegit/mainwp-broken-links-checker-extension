@@ -93,7 +93,7 @@ class MainWP_Links_Checker
 		if (!defined('DOING_AJAX') && isset($_GET['page']) && $_GET['page'] == 'Extensions-Mainwp-Broken-Links-Checker-Extension') {
 			if ( get_option( 'mainwp_blc_refresh_count_links_info' ) == 1 ) {
 				global $mainWPLinksCheckerExtensionActivator;
-				$websites = apply_filters( 'mainwp-getsites', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), null );
+				$websites = apply_filters( 'mainwp_getsites', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), null );
 				$all_sites = array();
 				if ( is_array( $websites ) ) {
 					foreach ( $websites as $website ) {
@@ -279,7 +279,7 @@ class MainWP_Links_Checker
                     return $input;
                 }
 		global $mainWPLinksCheckerExtensionActivator;
-		$websites = apply_filters( 'mainwp-getsites', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), $site_id );
+		$websites = apply_filters( 'mainwp_getsites', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), $site_id );
                 $website = null;
                 if ( is_array( $websites ) ) {
                     $website = current( $websites );
@@ -437,7 +437,7 @@ class MainWP_Links_Checker
                 die( json_encode( array( 'error' => __( 'Invalid site ids data. Please try again.', 'mainwp-broken-links-checker-extension' ) ) ) );
             }
         } else {
-            $websites = apply_filters( 'mainwp-getsites', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), null );
+            $websites = apply_filters( 'mainwp_getsites', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), null );
             $sites_ids = array();
             if ( is_array( $websites ) ) {
                 foreach ( $websites as $website ) {
@@ -911,7 +911,7 @@ class MainWP_Links_Checker
 		global $mainWPLinksCheckerExtensionActivator;
 
 		$sites_id = $sites_url = array();
-		$websites = apply_filters( 'mainwp-getsites', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), null );
+		$websites = apply_filters( 'mainwp_getsites', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), null );
 		if ( is_array( $websites ) ) {
 			foreach ( $websites as $website ) {
 				$sites_id[] = $website['id'];
