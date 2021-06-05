@@ -129,7 +129,6 @@ class MainWP_Links_Checker_Extension_Activator
 
 		$this->childFile = __FILE__;
 		add_filter( 'mainwp-getextensions', array( &$this, 'get_this_extension' ) );
-		//$this->mainwpMainActivated = apply_filters( 'mainwp-activated-check', false );
 		$this->mainwpMainActivated = apply_filters( 'mainwp_extension_enabled_check', false );
 
 		if ( $this->mainwpMainActivated !== false ) {
