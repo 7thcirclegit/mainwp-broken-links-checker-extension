@@ -123,8 +123,8 @@ class MainWP_Links_Checker
 	}
 
 	public function init() {
-                add_filter( 'mainwp-sync-others-data', array( $this, 'sync_others_data' ), 10, 2 );
-		add_action( 'mainwp-site-synced', array( &$this, 'site_synced' ), 10, 2 );
+                add_filter( 'mainwp_sync_others_data', array( $this, 'sync_others_data' ), 10, 2 );
+		add_action( 'mainwp_site_synced', array( &$this, 'site_synced' ), 10, 2 );
                 add_filter( 'mainwp_brokenlinks_get_data', array( &$this, 'brokenlinks_get_data' ), 10, 4 ); //ok
 		add_action( 'mainwp_delete_site', array( &$this, 'on_delete_site' ), 10, 1 );
 		add_action( 'wp_ajax_mainwp_broken_links_checker_edit_link', array( $this, 'ajax_edit_link' ) );
@@ -451,7 +451,7 @@ class MainWP_Links_Checker
 			'plugin_upgrades' => true,
 			'plugins' => true,
 		);
-		$dbwebsites = apply_filters( 'mainwp-getdbsites', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), $sites_ids, array(), $option );
+		$dbwebsites = apply_filters( 'mainwp_getdbsites', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), $sites_ids, array(), $option );
 		$dbwebsites_activate_links = MainWP_Links_Checker_Dashboard::get_instance()->get_websites_linkschecker( $dbwebsites, 0, '', array(), true );
 
 		unset( $dbwebsites );
@@ -953,7 +953,7 @@ class MainWP_Links_Checker
 			'plugins' => true,
 		);
 
-		$dbwebsites = apply_filters( 'mainwp-getdbsites', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), $sites_id, array(), $option );
+		$dbwebsites = apply_filters( 'mainwp_getdbsites', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), $sites_id, array(), $option );
 
 		$selected_dashboard_group = 0;
 		if ( isset( $_POST['mainwp_linkschecker_groups_select'] ) ) {
@@ -1240,7 +1240,7 @@ class MainWP_Links_Checker
 		$selected_site_ids = array();
 		if ( isset($filters['group_id']) && !empty($filters['group_id']) ) {
 			global $mainWPLinksCheckerExtensionActivator;
-			$group_websites = apply_filters( 'mainwp-getdbsites', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), array(), array( $filters['group_id'] ) );
+			$group_websites = apply_filters( 'mainwp_getdbsites', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), array(), array( $filters['group_id'] ) );
 			foreach ( $group_websites as $site ) {
 				$selected_site_ids[] = $site->id;
 			}
@@ -1338,7 +1338,7 @@ class MainWP_Links_Checker
 		$selected_group = isset($filters['group_id']) ? $filters['group_id'] : 0;
 		$selected_site = isset($filters['site_id']) ? $filters['site_id'] : 0;
 
-		$groups = apply_filters( 'mainwp-getgroups', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), null );
+		$groups = apply_filters( 'mainwp_getgroups', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), null );
 		?>
 
 	<form method="get" action="admin.php?page=Extensions-Mainwp-Broken-Links-Checker-Extension">
