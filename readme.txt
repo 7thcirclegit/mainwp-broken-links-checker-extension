@@ -16,7 +16,7 @@ Author URI: https://mainwp.com
 
 == Changelog ==
 
-= 4.0.0.6 - 6-5-2021 =
+= 4.0.0.7 - 6-11-2021 =
 * changed mainwp-sitestable-getcolumns to mainwp_sitestable_getcolumns 
 * changed mainwp-sitestable-item to mainwp_sitestable_item 
 * changed mainwp-site-synced to mainwp_site_synced 
