@@ -355,7 +355,7 @@ class MainWP_Links_Checker_Dashboard
 			} else {
 				global $mainWPLinksCheckerExtensionActivator;
 
-				$group_websites = apply_filters( 'mainwp-getdbsites', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), array(), array( $selected_group ) );
+				$group_websites = apply_filters( 'mainwp_getdbsites', $mainWPLinksCheckerExtensionActivator->get_child_file(), $mainWPLinksCheckerExtensionActivator->get_child_key(), array(), array( $selected_group ) );
 				$sites = array();
 				foreach ( $group_websites as $site ) {
 					$sites[] = $site->id;
