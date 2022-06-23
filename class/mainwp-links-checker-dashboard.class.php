@@ -137,7 +137,7 @@ class MainWP_Links_Checker_Dashboard {
 			<tr class="<?php echo $class_active . ' ' . $class_update; ?>" website-id="<?php echo $website_id; ?>" plugin-slug="<?php echo $plugin_slug; ?>" version="<?php echo $version; ?>">
 				<td class="check-column"><span class="ui checkbox"><input type="checkbox" name="checked[]"></span></td>
 				<td><a href="admin.php?page=managesites&dashboard=<?php echo $website_id; ?>"><?php echo stripslashes( $website['name'] ); ?></a></td>
-				<td><a target="_blank" href="admin.php?page=SiteOpen&newWindow=yes&websiteid=<?php echo $website_id; ?>"><i class="sign in icon"></i></a></td>
+				<td><a target="_blank" href="admin.php?page=SiteOpen&newWindow=yes&websiteid=<?php echo $website_id; ?>&location=<?php echo base64_encode( $location ); ?>&_opennonce=<?php echo wp_create_nonce( 'mainwp-admin-nonce' ); ?>" target="_blank"><i class="sign in icon"></i></a></td>
 				<td><a href="<?php echo $website['url']; ?>" target="_blank"><?php echo $website['url']; ?></a></td>
 				<td><?php echo $broken_link; ?></td>
 				<td><?php echo $redirects_link; ?></td>
@@ -151,7 +151,7 @@ class MainWP_Links_Checker_Dashboard {
 						<div class="menu">
 							<a class="item" href="admin.php?page=managesites&dashboard=<?php echo $website_id; ?>"><?php _e( 'Overview', 'mainwp-broken-links-checker-extension' ); ?></a>
 							<a class="item" href="admin.php?page=managesites&id=<?php echo $website_id; ?>"><?php _e( 'Edit', 'mainwp-broken-links-checker-extension' ); ?></a>
-							<a class="item" href="admin.php?page=SiteOpen&newWindow=yes&websiteid=<?php echo $website_id; ?>&location=<?php echo base64_encode( $location ); ?>" target="_blank"><?php _e( 'Open Broken Links Checker', 'mainwp-broken-links-checker-extension' ); ?></a>
+							<a class="item" href="admin.php?page=SiteOpen&newWindow=yes&websiteid=<?php echo $website_id; ?>&location=<?php echo base64_encode( $location ); ?>&_opennonce=<?php echo wp_create_nonce( 'mainwp-admin-nonce' ); ?>" target="_blank"><?php _e( 'Open Broken Links Checker', 'mainwp-broken-links-checker-extension' ); ?></a>
 							<?php if ( 1 == $website['hide_linkschecker'] ) : ?>
 							<a class="item linkschecker_showhide_plugin" href="#" showhide="show"><?php _e( 'Unhide Plugin', 'mainwp-broken-links-checker-extension' ); ?></a>
 							<?php else : ?>

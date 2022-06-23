@@ -1617,7 +1617,7 @@ class MainWP_Links_Checker
 			if ( $extra['container_type'] == 'comment' ) {
 				$html = '';
 				if ( isset( $extra['source_data']['text_sample'] ) ) {
-					$edit_href = 'admin.php?page=SiteOpen&websiteid=' . $link->site_id . '&location=' . base64_encode( 'comment.php?action=editcomment&c=' . $extra['source_data']['comment_id'] );
+					$edit_href = 'admin.php?page=SiteOpen&websiteid=' . $link->site_id . '&location=' . base64_encode( 'comment.php?action=editcomment&c=' . $extra['source_data']['comment_id'] ) . '&_opennonce=' . wp_create_nonce( 'mainwp-admin-nonce' );
 					$html = sprintf(
 						'<a href="%s" title="%s"><b>%s</b> &mdash; %s</a>',
 						$edit_href,
@@ -1633,7 +1633,7 @@ class MainWP_Links_Checker
 				}
 			} else {
 				if ( isset( $extra['source_data']['container_anypost'] ) && $extra['source_data']['container_anypost'] ) {
-			   $edit_href = 'admin.php?page=SiteOpen&websiteid=' . $link->site_id . '&location=' . base64_encode( 'post.php?post=' .$extra['container_id'] . '&action=edit' );
+			   $edit_href = 'admin.php?page=SiteOpen&websiteid=' . $link->site_id . '&location=' . base64_encode( 'post.php?post=' .$extra['container_id'] . '&action=edit' ) . '&_opennonce=' . wp_create_nonce( 'mainwp-admin-nonce' );
 			   $source = sprintf(
 				   '<a class="row-title" href="%s" target="_blank" title="%s">%s</a>',
 				   $edit_href,
