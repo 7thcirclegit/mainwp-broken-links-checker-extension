@@ -109,7 +109,7 @@ class MainWP_Links_Checker_Dashboard {
 			$link_prefix = 'admin.php?page=Extensions-Mainwp-Broken-Links-Checker-Extension&site_id=' . $website_id . '&tab=links&filter_id=';
 
 			if ( isset( $website['linkschecker_active'] ) && $website['linkschecker_active'] ) {
-				$location = 'options-general.php?page=link-checker-settings';
+				$location = 'tools.php?page=view-broken-links';
 				$broken_link = '<a href="' . $link_prefix .'broken" >' . esc_html( $website['broken'] ) . '</a>';
 				$redirects_link = '<a href="' . $link_prefix .'redirects" >' . esc_html( $website['redirects'] ) . '</a>';
 				$dismissed_link = '<a href="' . $link_prefix .'dismissed">' . esc_html( $website['dismissed'] ) . '</a>';
